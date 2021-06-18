@@ -1,0 +1,34 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wrap div {
+  margin: 3rem 0;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 1rem auto;
+  table-layout: fixed;
+  word-break: break-all;
+  text-align: center;
+  position: relative;
+}
+
+.table div {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.tr th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+.tbody {
+  border: 1px solid;
+}
