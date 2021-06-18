@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import styles from "./moduleCss/days.module.css";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "SET_INIT_DATA":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const Days = () => {
-  const days = useFetch("http://localhost:3001/days");
+  const [days, dispatch] = useReducer(reducer, []);
+  //const [days, setDays] = useState([]);
+
+  const setInitData = initData => {
+    dispatch({ type: "SET_INIT_DATA", payload: initData });
+  };
+
+  const loading = useFetch(setInitData, "http://localhost:3001/days");
+  console.log("Days");
 
   return (
     <div className={styles.wrap}>
-      {days.length === 0 ? (
+      {loading ? (
         <div className="loading"></div>
       ) : (
         <ul className={styles.ul}>

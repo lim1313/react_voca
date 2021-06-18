@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./moduleCss/header.module.css";
 
@@ -8,6 +8,7 @@ const Header = () => {
   const onClick = () => {
     history.push("/");
   };
+  console.log("header");
 
   return (
     <div className={styles.body}>
@@ -27,5 +28,4 @@ const Header = () => {
     </div>
   );
 };
-
 export default Header;
